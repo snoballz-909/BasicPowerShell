@@ -29,3 +29,6 @@ Get-Content C:\Windows\WindowsUpdate.log | Select-String "[\w+\W+]Installing Upd
 
 # Display all IPv4 listings in the DNS client cache
 Get-DnsClientCache | Where-Object {$_.Data -match "^\d{1,3}\."}
+
+# Find the lines in the HOSTS file that contain IPv4 addresses
+Get-Content C:\Windows\System32\drivers\etc\hosts | Where-Object {$_ -match "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"}
